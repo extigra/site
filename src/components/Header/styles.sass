@@ -1,0 +1,25 @@
+@use '../../styles/variables'
+
+.header
+  padding: variables.$padding-medium
+  display: flex
+  align-items: center
+  justify-content: space-between !important
+
+  .menus-container
+    display: flex
+    gap: variables.$gap-large
+
+    .menu
+      >.menu-item
+        text-decoration: none
+        font-weight: 700
+        color: variables.$gray-500
+
+        &:hover
+          color: variables.$red-500
+
+@media (max-width: variables.$mobile-breakpoint)
+  .header
+    flex-direction: column
+    gap: variables.$gap-medium

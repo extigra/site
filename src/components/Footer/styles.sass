@@ -1,0 +1,64 @@
+@use '../../styles/variables'
+
+.footer
+  background-color: #e3e3e3
+
+  .footer-top
+    display: flex
+    align-items: center
+    justify-content: space-around
+    padding: variables.$padding-medium
+
+    .footer-menus
+      display: flex
+      gap: variables.$gap-medium
+
+      .footer-menu
+        >.footer-menu-item
+          text-decoration: none
+          font-weight: 700
+          color: variables.$gray-500
+
+          &:hover
+            color: variables.$red-500
+      
+    .social-medias
+      display: flex
+      gap: variables.$gap-medium
+
+      .social-media-item
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 50px
+        height: 50px
+        background-color: variables.$red-500
+        padding: variables.$padding-small
+        border-radius: 50%
+
+  .footer-bottom
+    background-color: variables.$red-500
+    display: flex
+    align-items: center
+    justify-content: space-between
+    color: #fff
+    padding: variables.$padding-small variables.$padding-medium
+
+    .partner-container
+      display: flex
+      align-items: center
+      gap: variables.$gap-medium
+
+@media (max-width: variables.$mobile-breakpoint)
+  .footer
+    flex-direction: column
+
+    .footer-top
+      flex-direction: column
+      gap: variables.$gap-large
+
+    .footer-bottom
+      flex-direction: column
+      text-align: center
+      gap: variables.$gap-medium
+      padding: variables.$padding-medium
