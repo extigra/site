@@ -1,7 +1,8 @@
 import { Inter } from 'next/font/google'
-import '../styles/app.sass'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { ApolloWrapper } from '@/lib/client'
+import '../styles/app.sass'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <body className={inter.className}>
         <Header />
-        {children}
+        <ApolloWrapper>{children}</ApolloWrapper>
         <Footer />
       </body>
     </html>
