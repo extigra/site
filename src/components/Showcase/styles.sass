@@ -1,0 +1,26 @@
+@use '../../styles/variables'
+
+.showcase
+  display: flex
+  flex-direction: column
+  width: 340px
+  align-items: center
+
+  a
+    text-decoration: none
+
+  .product-infos
+    display: flex
+    flex-direction: column
+    width: 100%
+    gap: variables.$gap-medium
+    text-align: center
+
+    .product-price
+      font-size: variables.$font-size-medium
+      font-weight: 700
+      text-decoration: none !important
+      color: #000
+
+    .product-name
+      color: #000 
