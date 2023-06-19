@@ -4,6 +4,7 @@ export const dynamic = 'force-dynamic'
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr'
 import { gql } from '@apollo/client'
 import Showcase from '@/components/Showcase'
+import './styles.sass'
 
 const query = gql`
   query {
@@ -26,6 +27,7 @@ export default function ProductsListPage() {
   return (
     <main>
       <section className="products-list">
+        <h1 className="title">NOSSOS PRODUTOS</h1>
         {data &&
           data.produtos.map((element, index) => {
             return (

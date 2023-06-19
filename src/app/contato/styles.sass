@@ -1,0 +1,90 @@
+@use '../../styles/variables'
+
+.top-section
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  .title
+    font-size: variables.$font-size-large
+    text-decoration: underline
+
+  .subtitle
+    margin: variables.$margin-large 0
+
+  .contacts-container
+    display: flex
+    flex-direction: row
+    gap: variables.$gap-large
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+
+    .contact-card
+      max-width: 360px
+      .contact-link
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: variables.$gap-small
+        padding: variables.$padding-medium
+        color: #fff
+        background-color: variables.$red-500
+        border-radius: 4px
+        transition: .3s
+        text-decoration: none
+
+        &:hover
+          background-color: variables.$red-700
+
+.maps-section
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  text-align: center
+  gap: variables.$gap-medium
+
+  .localization-container
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: variables.$gap-medium
+
+    >.title
+      font-size: variables.$font-size-medium
+      text-decoration: underline
+    
+    .adress
+      font-weight: 700
+      font-size: variables.$font-size-normal
+      color: variables.$gray-500
+  
+  .hour-container
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: variables.$gap-medium
+    margin: variables.$margin-medium 0
+
+    p
+      font-size: variables.$font-size-normal
+
+    .hour-title
+      font-size: variables.$font-size-medium
+      text-decoration: underline
+
+@media (max-width: variables.$mobile-breakpoint)
+  .top-section
+    .contacts-container
+      .contact-card
+        width: 360px !important
+  
+  .maps-section
+    .localization-container
+      .map
+        max-width: 380px
