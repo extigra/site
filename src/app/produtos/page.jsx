@@ -28,18 +28,20 @@ export default function ProductsListPage() {
     <main>
       <section className="products-list">
         <h1 className="title">NOSSOS PRODUTOS</h1>
-        {data &&
-          data.produtos.map((element, index) => {
-            return (
-              <Showcase
-                productId={element.id}
-                name={element.nome}
-                price={element.preco}
-                imageSrc={element.imagens[0].url}
-                key={index}
-              />
-            )
-          })}
+        <div className="showcase-container">
+          {data &&
+            data.produtos.map((element, index) => {
+              return (
+                <Showcase
+                  productId={element.id}
+                  name={element.nome}
+                  price={element.preco}
+                  imageSrc={element.imagens[0].url}
+                  key={index}
+                />
+              )
+            })}
+        </div>
       </section>
     </main>
   )
