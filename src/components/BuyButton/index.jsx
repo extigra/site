@@ -1,11 +1,12 @@
 import './styles.sass'
+import Link from 'next/link'
 
 export default function BuyButton(props) {
-  const { text } = props
+  const { text, slug } = props
 
   return (
-    <a href="#" className="buy-button">
+    <Link href={`/produtos/${slug}`} className="buy-button">
       {text}
-    </a>
+    </Link>
   )
 }

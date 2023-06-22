@@ -20,7 +20,8 @@
     "react-dom": "18.2.0",
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.9.0",
-    "sass": "^1.63.3"
+    "sass": "^1.63.3",
+    "swiper": "^9.4.1"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",

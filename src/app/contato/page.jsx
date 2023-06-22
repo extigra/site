@@ -5,12 +5,12 @@ export default function ContactPage() {
     {
       name: 'whatsapp',
       link: '#',
-      info: '(51)9999-9999'
+      info: '(51) 98031-5566'
     },
     {
       name: 'phone',
       link: '#',
-      info: '(51)9999-9999'
+      info: '(51) 3488-1995'
     },
     {
       name: 'instagram',

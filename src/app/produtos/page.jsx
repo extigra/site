@@ -8,7 +8,7 @@ import './styles.sass'
 
 const query = gql`
   query {
-    produtos {
+    produtos(first: 50) {
       id
       nome
       slug
@@ -37,6 +37,7 @@ export default function ProductsListPage() {
                   name={element.nome}
                   imageSrc={element.imagens && element.imagens[0]?.url}
                   key={index}
+                  slug={element.slug}
                 />
               )
             })}

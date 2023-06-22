@@ -32,8 +32,7 @@ export default function ProductDetailsPage({ params }) {
   const [productQuantity, setProductQuantity] = useState()
   const [productObservation, setProductObservation] = useState(null)
 
-  const quantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const phone = 5551998722405
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE
 
   const { data } = useSuspenseQuery(GET_PRODUCT_BY_ID, {
     variables: { slug: params.slug }
@@ -66,9 +65,9 @@ export default function ProductDetailsPage({ params }) {
 
   return (
     <main>
-      <section className="top-section">
+      <section className="product-top-section">
         <div className="product-image-container">
-          {data.produto.imagens ? (
+          {data.produto?.imagens ? (
             <Image
               src={data.produto.imagens[0]?.url}
               className="product-image"
@@ -85,6 +84,11 @@ export default function ProductDetailsPage({ params }) {
         <form onSubmit={requestContact}>
           <div className="product-infos-container">
             <h1 className="product-name">{data.produto.nome}</h1>
+
+            <div className="description-container">
+              {ReactHtmlParser(data.produto.descricao.html)}
+            </div>
+
             {data.produto.atributos && (
               <div className="attributes-container">
                 <p>Selecione uma opção:</p>
@@ -111,24 +115,17 @@ export default function ProductDetailsPage({ params }) {
             )}
 
             <div className="quantity-container">
-              <p>Selecione a quantidade:</p>
-              <select
-                defaultValue={1}
-                required
+              <p>Informe a quantidade:</p>
+              <input
+                type="number"
+                name=""
+                id=""
                 onChange={(event) => {
                   setProductQuantity(event.target.value)
                 }}
                 className="product-selector"
-              >
-                {quantity &&
-                  quantity.map((element, index) => {
-                    return (
-                      <option value={element} key={index}>
-                        {element}
-                      </option>
-                    )
-                  })}
-              </select>
+                required
+              />
             </div>
 
             <div className="observation-container">
@@ -147,12 +144,6 @@ export default function ProductDetailsPage({ params }) {
             />
           </div>
         </form>
-      </section>
-      <section className="description-section">
-        <h2 className="subtitle">Descrição</h2>
-        <div className="description-container">
-          {ReactHtmlParser(data.produto.descricao.html)}
-        </div>
       </section>
     </main>
   )
