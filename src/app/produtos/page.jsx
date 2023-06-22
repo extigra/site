@@ -11,7 +11,7 @@ const query = gql`
     produtos {
       id
       nome
-      preco
+      slug
       imagens {
         url
       }
@@ -33,10 +33,9 @@ export default function ProductsListPage() {
             data.produtos.map((element, index) => {
               return (
                 <Showcase
-                  productId={element.id}
+                  product={element.slug}
                   name={element.nome}
-                  price={element.preco}
-                  imageSrc={element.imagens[0].url}
+                  imageSrc={element.imagens && element.imagens[0]?.url}
                   key={index}
                 />
               )
