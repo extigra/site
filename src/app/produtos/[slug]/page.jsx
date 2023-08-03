@@ -32,8 +32,6 @@ export default function ProductDetailsPage({ params }) {
   const [productQuantity, setProductQuantity] = useState()
   const [productObservation, setProductObservation] = useState(null)
 
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE
-
   const { data } = useSuspenseQuery(GET_PRODUCT_BY_ID, {
     variables: { slug: params.slug }
   })
@@ -42,22 +40,25 @@ export default function ProductDetailsPage({ params }) {
     const productRequestData = {
       name: data.produto.nome,
       attribute: productAttribute,
-      quantity: productQuantity
+      quantity: productQuantity,
+      observation: productObservation || null
     }
 
-    let message = `Gostaria de solicitar o orçamento de ${productRequestData.quantity} ${productRequestData.name} - ${productRequestData.attribute}`
-    const requestMessage = message.replace(/ /g, '%20')
+    let storagedProduct = []
 
-    if (productObservation) {
-      const requestObservation = productObservation.replace(/ /g, '%20')
-
-      window.open(
-        `https://api.whatsapp.com/send?1=pt_BR%phone=${phone}&text=${requestMessage}%0Aobserva%C3%A7%C3%B5es%20${requestObservation}`
-      )
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('products') !== null) {
+        storagedProduct = JSON.parse(localStorage.getItem('products'))
+        storagedProduct.push(productRequestData)
+        localStorage.setItem('products', JSON.stringify(storagedProduct))
+        console.log('produto adicionado ao carrinho')
+      } else {
+        storagedProduct.push(productRequestData)
+        localStorage.setItem('products', JSON.stringify(storagedProduct))
+        console.log('carrinho criado')
+      }
     } else {
-      window.open(
-        `https://api.whatsapp.com/send?1=pt_BR%phone=${phone}&text=${requestMessage}`
-      )
+      return
     }
 
     event.preventDefault()
