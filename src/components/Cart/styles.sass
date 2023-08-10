@@ -1,0 +1,49 @@
+@use '../../styles/variables'
+
+.cart-container
+  padding: variables.$padding-medium
+  display: flex
+  align-items: flex-start
+  justify-content: center
+  gap: variables.$gap-large
+
+  .cart-items
+    display: flex
+    flex-direction: column
+    gap: variables.$gap-medium
+
+    .cart-item
+      display: flex
+      flex-direction: column
+      gap: variables.$gap-small
+      padding: variables.$padding-medium
+      border: 2px solid variables.$red-500
+  
+  .cart-form
+    display: flex
+    flex-direction: column
+    gap: variables.$gap-medium
+    max-width: 460px
+    text-align: center
+
+    .form-title
+      font-size: 18px
+
+    .form-input
+      padding: variables.$padding-small
+
+    .confirm-button
+      padding: variables.$padding-small
+      border: none
+      background-color: variables.$green-500
+      color: #fff
+      font-weight: 700
+      cursor: pointer
+      transition: .3s
+
+      &:active
+        transform: scale(0.9)
+
+@media (max-width: variables.$mobile-breakpoint)
+  .cart-container
+    flex-direction: column

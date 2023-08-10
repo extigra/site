@@ -140,7 +140,7 @@ export default function ProductDetailsPage({ params }) {
 
             <input
               type="submit"
-              value="Solicitar Orçamento"
+              value="Adicionar ao Carrinho"
               className="purchase-button"
             />
           </div>

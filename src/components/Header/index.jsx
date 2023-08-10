@@ -21,7 +21,17 @@ export default function Header() {
             CONTATO
           </Link>
         </nav>
+
+        <nav className="menu">
+          <Link href={'/sobre'} className="menu-item">
+            SOBRE
+          </Link>
+        </nav>
       </div>
+
+      <Link href={'/carrinho'} className="menu-item">
+        <img src="/icons/shop-cart.svg" alt="" width={44} />
+      </Link>
     </header>
   )
 }
