@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react'
+'use client'
+
+import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import './styles.sass'
 
 export default function Cart(props) {
@@ -7,13 +10,35 @@ export default function Cart(props) {
   const [customerName, setCustomerName] = useState()
   const [customerContact, setCustomerContact] = useState()
 
-  useEffect(() => {
-    console.log(customerName)
-    console.log(customerContact)
-  }, [customerContact, customerName])
-
   function sendSolicitation(event) {
     event.preventDefault()
+
+    const templateParams = {
+      from_name: customerName,
+      contact_phone: customerContact,
+      message: cartItems
+    }
+
+    emailjs
+      .send(
+        'service_04ffgmt',
+        'template_oyiz6zg',
+        templateParams,
+        'UMFR4Sf_Y-D79bb6T'
+      )
+      .then(
+        () => {
+          console.log('enviar para pagina de confirmação')
+          setCustomerContact('')
+          setCustomerName('')
+
+          localStorage.clear()
+          window.location.href = '/confirmacao'
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
   }
 
   return (
@@ -51,6 +76,7 @@ export default function Cart(props) {
           type="text"
           placeholder="Nome"
           onChange={(event) => setCustomerName(event.target.value)}
+          value={customerName}
           className="form-input"
           required
         />
@@ -58,6 +84,7 @@ export default function Cart(props) {
           type="number"
           placeholder="Telefone"
           onChange={(event) => setCustomerContact(event.target.value)}
+          value={customerContact}
           className="form-input"
           required
         />
