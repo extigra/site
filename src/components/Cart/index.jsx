@@ -9,6 +9,11 @@ export default function Cart(props) {
 
   const [customerName, setCustomerName] = useState()
   const [customerContact, setCustomerContact] = useState()
+  const [customerStreet, setCustomerStreet] = useState()
+  const [customerStreetNumber, setCustomerStreetNumber] = useState()
+  const [customerNeighborhood, setCustomerNeighborhood] = useState()
+  const [customerCity, setCustomerCity] = useState()
+  const [customerCep, setCustomerCep] = useState()
 
   function sendSolicitation(event) {
     event.preventDefault()
@@ -35,6 +40,13 @@ export default function Cart(props) {
     const templateParams = {
       from_name: customerName,
       contact_phone: customerContact,
+      adress: {
+        street: customerStreet,
+        number: customerStreetNumber,
+        neighborhood: customerNeighborhood,
+        city: customerCity,
+        cep: customerCep
+      },
       products: products
     }
 
@@ -104,6 +116,49 @@ export default function Cart(props) {
           placeholder="Telefone"
           onChange={(event) => setCustomerContact(event.target.value)}
           value={customerContact}
+          className="form-input"
+          required
+        />
+
+        <p>Endereço:</p>
+
+        <input
+          type="text"
+          placeholder="Rua"
+          onChange={(event) => setCustomerStreet(event.target.value)}
+          value={customerStreet}
+          className="form-input"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Número"
+          onChange={(event) => setCustomerStreetNumber(event.target.value)}
+          value={customerStreetNumber}
+          className="form-input"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Bairro"
+          onChange={(event) => setCustomerNeighborhood(event.target.value)}
+          value={customerNeighborhood}
+          className="form-input"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Cidade"
+          onChange={(event) => setCustomerCity(event.target.value)}
+          value={customerCity}
+          className="form-input"
+          required
+        />
+        <input
+          type="number"
+          placeholder="CEP"
+          onChange={(event) => setCustomerCep(event.target.value)}
+          value={customerCep}
           className="form-input"
           required
         />
