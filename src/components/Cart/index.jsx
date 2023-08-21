@@ -13,15 +13,34 @@ export default function Cart(props) {
   function sendSolicitation(event) {
     event.preventDefault()
 
+    function generateHTML(dataList) {
+      const html = dataList
+        .map(
+          (item) => `
+        <div class="item">
+          <p><strong>Produto:</strong>${item.name}</p>
+          <p><strong>Quantiade:</strong> ${item.quantity}</p>
+          <p><strong>Atributo:</strong> ${item.attribute}</p>
+          <p><strong>Observação:</strong> ${item.observation}</p>
+        </div>
+      `
+        )
+        .join('')
+
+      return html
+    }
+
+    const products = generateHTML(cartItems)
+
     const templateParams = {
       from_name: customerName,
       contact_phone: customerContact,
-      message: cartItems
+      products: products
     }
 
     emailjs
       .send(
-        'service_04ffgmt',
+        'service_uy1a94b',
         'template_oyiz6zg',
         templateParams,
         'UMFR4Sf_Y-D79bb6T'
