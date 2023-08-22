@@ -1,0 +1,24 @@
+@use '../../styles/variables'
+
+.confirmation
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  gap: variables.$gap-medium
+
+  .title
+    font-size: variables.$font-size-large
+
+  .paragraph
+    font-size: variables.$font-size-normal
+
+  .button
+    padding: variables.$padding-small
+    color: #fff
+    background-color: variables.$red-500
+    text-decoration: none
+    transition: .3s
+
+    &:hover 
+      background-color: variables.$red-700

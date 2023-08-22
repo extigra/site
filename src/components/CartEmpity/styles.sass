@@ -1,0 +1,24 @@
+@use '../../styles/variables'
+
+.cart-empity
+  display: flex
+  flex-direction: column
+  width: 100%
+  min-height: 100%
+  align-items: center
+  justify-content: center
+  gap: 36px
+
+  .cart-empity-message
+    font-size: variables.$font-size-normal
+
+  .cart-empity-link
+    padding: variables.$padding-small
+    color: #fff
+    background-color: variables.$red-500
+    text-decoration: none
+    transition: .3s
+
+    &:hover
+      background-color: variables.$red-700
+      

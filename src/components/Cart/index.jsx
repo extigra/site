@@ -75,6 +75,7 @@ export default function Cart(props) {
   return (
     <div className="cart-container">
       <div className="cart-items">
+        <h1>Produtos:</h1>
         {cartItems &&
           cartItems.map((element, index) => {
             return (

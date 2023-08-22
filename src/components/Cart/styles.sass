@@ -5,7 +5,7 @@
   display: flex
   align-items: flex-start
   justify-content: center
-  gap: variables.$gap-large
+  gap: 120px
 
   .cart-items
     display: flex
@@ -18,6 +18,13 @@
       gap: variables.$gap-small
       padding: variables.$padding-medium
       border: 2px solid variables.$red-500
+      max-width: 540px
+      transition: .3s
+
+      &:hover
+        background-color: variables.$red-500
+        color: #fff
+
   
   .cart-form
     display: flex
