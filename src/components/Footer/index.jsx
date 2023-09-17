@@ -21,6 +21,12 @@ export default function Footer() {
               PRODUTOS
             </Link>
           </nav>
+
+          <nav className="footer-menu">
+            <Link className="footer-menu-item" href={'/sobre'}>
+              SOBRE
+            </Link>
+          </nav>
         </div>
 
         <div className="social-medias">
